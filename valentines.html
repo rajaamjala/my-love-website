@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Buddankay 💖👫</title>
+  <!-- Premium fonts: Elegant serif for headings and a clean sans-serif for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --burgundy: #800020;
+      --blush:    #FFD1DC;
+      --pink:     #FFB6C1;
+    }
+
+    /* Base styling */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, var(--blush) 0%, var(--pink) 100%);
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      color: var(--burgundy);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    /* Header styling */
+    .header {
+      text-align: center;
+      padding: 40px;
+      background: var(--blush);
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      border: 2px solid var(--burgundy);
+      /* Removed playful rotation for a cleaner look */
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8em;
+      color: var(--burgundy);
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    /* Button styling */
+    .love-btn {
+      background: linear-gradient(145deg, var(--burgundy), var(--pink));
+      color: var(--blush);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      margin: 20px auto;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      font-size: 1.2em;
+      display: block;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .love-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section styling */
+    .love-section {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      background: var(--blush);
+      border-radius: 15px;
+      margin: 25px 0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--burgundy);
+    }
+
+    .love-section.visible {
+      max-height: 2000px;
+      opacity: 1;
+      padding: 30px;
+    }
+
+    /* Headings in sections */
+    .love-section h2,
+    .love-section h3,
+    .love-section h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Memory grid */
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .memory-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border: 2px solid var(--burgundy);
+    }
+
+    .memory-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .memory-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Flower garden styling */
+    .flower-garden {
+      min-height: 300px;
+      background: var(--blush);
+      border-radius: 15px;
+      margin: 25px 0;
+      padding: 25px;
+      cursor: pointer;
+      position: relative;
+      border: 2px dashed var(--burgundy);
+      overflow: hidden;
+    }
+
+    .bloom {
+      position: absolute;
+      font-size: 2em;
+      animation: bloom 0.5s ease-out forwards;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    /* Song box styling */
+    .song-box {
+      background: var(--blush);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 25px 0;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .spotify-embed {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    /* Countdown styling */
+    .countdown-box {
+      background: var(--blush);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      margin: 25px 0;
+      /* Removed rotation for a cleaner look */
+    }
+
+    /* Animations */
+    @keyframes bloom {
+      0% { transform: scale(0) rotate(0deg); }
+      80% { transform: scale(1.1) rotate(10deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    .heart-flow {
+      position: fixed;
+      font-size: 24px;
+      pointer-events: none;
+      animation: flowUp 8s linear infinite;
+      bottom: -100px;
+      color: var(--burgundy);
+      z-index: 0;
+      opacity: 0.7;
+    }
+
+    @keyframes flowUp {
+      0% { transform: translateY(0) translateX(0); opacity: 1; }
+      100% { transform: translateY(-150vh) translateX(0); opacity: 0; }
+    }
+
+    .click-effect {
+      position: absolute;
+      font-size: 24px;
+      animation: clickPop 0.6s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes clickPop {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    .progress-bar {
+      height: 15px;
+      background: rgba(128, 0, 32, 0.2);
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--burgundy), var(--pink));
+      width: 0%;
+      transition: width 0.5s ease;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Your Grace 💝</h1>
+      <p>Every click is a heartbeat of our love... ❤️</p>
+    </div>
+
+    <!-- Love Letter Section -->
+    <button class="love-btn" onclick="toggleSection('letter')">
+      💌 My Love Letter
+    </button>
+    <div class="love-section" id="letter">
+      <h2>My Buddamma,</h2>
+      <p>
+        From our first hello to forever moments, you've been my everything...<br>
+        Though time was brief, yet hearts stood still,<br>
+        A moment frozen, warm and real<br>
+        Your laughter lingers in the air,<br>
+        A melody beyond compare.<br><br>
+        Two days gone, but feels like years,<br>
+        My world is dim without you near.<br>
+        The echoes of your voice remain,<br>
+        Soft whispers calling out my name.<br><br>
+        I trace the places where we stood,<br>
+        Where love first sparked and understood.<br>
+        The way your fingers fit in mine,<br>
+        Like fate had written love divine.<br><br>
+        Miles apart, yet close in heart,<br>
+        No distance strong enough to part.<br>
+        For love is not just time or place,<br>
+        But souls entwined in boundless space.<br><br>
+        I close my eyes and see your face,<br>
+        Feel your warmth, your sweet embrace.<br>
+        Until we meet and time rewinds,<br>
+        I'll love you, now and for all time.<br><br>
+        Happy Valentine’s Day, my lavender. 💕
+      </p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 100%"></div>
+      </div>
+      <p>My heart is 100% yours, today and always 💞</p>
+    </div>
+
+    <!-- Memory Vault Section -->
+    <button class="love-btn" onclick="toggleSection('memories')">
+      📸 Our Memory Vault
+    </button>
+    <div class="love-section" id="memories">
+      <div class="memory-grid">
+        <div class="memory-card">
+          <img src="first-date.jpg" alt="First Date Magic ✨" title="First Date @CCC">
+        </div>
+        <div class="memory-card">
+          <img src="Adventure.jpg" alt="Adventure Buddies 🌄" title="First-Peg @JIM BEAM">
+        </div>
+        <div class="memory-card">
+          <img src="special.jpg" alt="Special❤️" title="Special-Forever @CHARMINAR">
+        </div>
+      </div>
+    </div>
+
+    <!-- Eternal Garden Section -->
+    <button class="love-btn" onclick="toggleSection('garden')">
+      🌸 Our Eternal Garden
+    </button>
+    <div class="love-section" id="garden">
+      <div class="flower-garden" id="gardenContainer" onclick="plantFlower(event)">
+        <h3>Plant flowers that never fade 🌺</h3>
+        <h4>I always wanted to grow a real garden with you, until then let's grow our little virtual garden</h4>
+        <p>Flowers grown with love: <span id="flowerCount">0</span></p>
+      </div>
+    </div>
+
+    <!-- Music Section -->
+    <button class="love-btn" onclick="toggleSection('music')">
+      🎶 Reminds Me Of You
+    </button>
+    <div class="love-section" id="music">
+      <div class="song-box">
+        <div class="spotify-embed">
+          <iframe style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/2Nn5mcrke82PVdtpfvkgPP?utm_source=generator&theme=0" 
+            width="100%" 
+            height="152" 
+            frameborder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+        </div>
+        <p style="text-align: center; margin-top: 15px;">
+          "This song reminds me of my Beautiful Girl (YOU)"
+        </p>
+      </div>
+    </div>
+
+    <!-- Countdown Section -->
+    <button class="love-btn" onclick="toggleSection('countdown')">
+      ⏳ Until I Hold You Again
+    </button>
+    <div class="love-section" id="countdown">
+      <div class="countdown-box">
+        <h2>Time Until I Hold You Again 👫</h2>
+        <p id="countdownTimer">Counting every heartbeat... 💓</p>
+        <div class="progress-bar">
+          <div class="progress-fill" id="countdownProgress"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle sections on button click
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      const isVisible = section.classList.contains('visible');
+      section.classList.toggle('visible');
+      if (!isVisible) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    }
+
+    // Click effects for interactive touches
+    document.body.addEventListener('click', function(e) {
+      const clickEffect = document.createElement('div');
+      clickEffect.className = 'click-effect';
+      clickEffect.innerHTML = ['💖', '✨', '🌸', '💫'][Math.floor(Math.random() * 4)];
+      clickEffect.style.left = `${e.clientX - 15}px`;
+      clickEffect.style.top = `${e.clientY - 15}px`;
+      document.body.appendChild(clickEffect);
+      setTimeout(() => clickEffect.remove(), 600);
+    });
+
+    // Upward heart flow for continuous interactivity
+    function createHearts() {
+      const heart = document.createElement('div');
+      heart.className = 'heart-flow';
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+      heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHearts, 300);
+
+    // Flower garden interaction
+    let flowerCount = 0;
+    const flowers = ['🌷', '🌹', '🌸', '💐', '🌼'];
+    const gardenContainer = document.getElementById('gardenContainer');
+
+    function plantFlower(e) {
+      const gardenRect = gardenContainer.getBoundingClientRect();
+      const x = e.clientX - gardenRect.left;
+      const y = e.clientY - gardenRect.top;
+      const flower = document.createElement('div');
+      flower.className = 'bloom';
+      flower.style.position = 'absolute';
+      flower.style.left = `${x}px`;
+      flower.style.top = `${y}px`;
+      flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+      gardenContainer.appendChild(flower);
+      flowerCount++;
+      document.getElementById('flowerCount').textContent = flowerCount;
+    }
+
+    // Countdown Timer (Feb 11 2025 1:00 PM to Dec 1 2025)
+    const targetDate = new Date('December 1, 2025 00:00:00').getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById('countdownTimer').innerHTML = 
+        `${days} days, ${hours}h ${minutes}m ${seconds}s until I hold you again 💞`;
+      const totalDays = 278; // From Feb 11 2025 to Dec 1 2025
+      const daysPassed = totalDays - days;
+      const progress = (daysPassed / totalDays * 100).toFixed(0);
+      document.getElementById('countdownProgress').style.width = `${progress}%`;
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById('countdownTimer').innerHTML =
+          "Holding you right now! Never letting go 🤗💖";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
